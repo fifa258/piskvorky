@@ -1,8 +1,0 @@
-[
-{
-  "directory": "C:/Users/caklo/Filip/piskvorkykorky/cmake-build-debug",
-  "command": "C:\\Users\\caklo\\AppData\\Local\\Programs\\CLION2~1.3\\bin\\mingw\\bin\\gcc.exe -g -std=gnu11 -fdiagnostics-color=always -o CMakeFiles\\piskvorkykorky.dir\\main.c.obj -c C:\\Users\\caklo\\Filip\\piskvorkykorky\\main.c",
-  "file": "C:/Users/caklo/Filip/piskvorkykorky/main.c",
-  "output": "C:/Users/caklo/Filip/piskvorkykorky/cmake-build-debug/CMakeFiles/piskvorkykorky.dir/main.c.obj"
-}
-]
