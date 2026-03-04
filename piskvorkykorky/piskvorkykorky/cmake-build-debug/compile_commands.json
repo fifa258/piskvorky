@@ -1,0 +1,8 @@
+[
+{
+  "directory": "F:/student/it2/P2/PVY/piskvorky/cmake-build-debug",
+  "command": "C:\\mingw\\mingw64\\bin\\gcc.exe -g -std=gnu11 -fdiagnostics-color=always -o CMakeFiles\\piskvorkykorky.dir\\main.c.obj -c F:\\student\\it2\\P2\\PVY\\piskvorky\\main.c",
+  "file": "F:/student/it2/P2/PVY/piskvorky/main.c",
+  "output": "F:/student/it2/P2/PVY/piskvorky/cmake-build-debug/CMakeFiles/piskvorkykorky.dir/main.c.obj"
+}
+]
