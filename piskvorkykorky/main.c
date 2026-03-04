@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-#define SIZE 15
+#define SIZE 8
 #define MIN 1
-#define WIN_COUNT 5
+#define WIN_COUNT 2
 
 typedef struct {
     int row;
@@ -27,7 +27,7 @@ int input(const char *text1, const char *text2) {
         scanf("%d", &number);
         character = buffer();
         if (character != 0 || number < MIN || number > SIZE) {
-            printf("You entered the wrong input.\n");
+            printf("You entered a wrong input.\n");
         }
     } while (character != 0 || number < MIN || number > SIZE);
 
@@ -36,9 +36,24 @@ int input(const char *text1, const char *text2) {
 
 void header() {
     printf("               N O U G T S  A N D  C R O S S E S\n");
-    printf("--|------------------------------------------------------------\n");
-    printf("--|  1|  2|  3|  4|  5|  6|  7|  8|  9| 10| 11| 12| 13| 14| 15|\n");
-    printf("--|------------------------------------------------------------\n");
+
+    printf("--|");
+    for (int i = 0; i < SIZE; i++) {
+        printf("----");
+    }
+    printf("\n");
+
+    printf("  |");
+    for (int i = 0; i < SIZE; i++) {
+        printf("%2d |", i + 1);
+    }
+    printf("\n");
+
+    printf("--|");
+    for (int i = 0; i < SIZE; i++) {
+        printf("----");
+    }
+    printf("\n");
 }
 
 void tablePrinter(const char p[SIZE][SIZE]) {
@@ -48,7 +63,12 @@ void tablePrinter(const char p[SIZE][SIZE]) {
             printf("%2c |", p[i][j]);
         }
         printf("\n");
-        printf("--|------------------------------------------------------------\n");
+
+        printf("--|");
+        for (int i = 0; i < SIZE; i++) {
+            printf("----");
+        }
+        printf("\n");
     }
 }
 
@@ -103,6 +123,22 @@ int checkChar(char table[SIZE][SIZE], COORDINATES coor) {
     return table[coor.row - 1][coor.column - 1] != 0;
 }
 
+void turn(COORDINATES coordinates, char table[SIZE][SIZE], const char *text1, const char text2) {
+    do {
+        coordinates.row = input(text1, "row");
+        coordinates.column = input(text1, "column");
+
+        if (checkChar(table, coordinates)) {
+            printf("This position is already taken.\n");
+        }
+    } while (checkChar(table, coordinates));
+
+    table[coordinates.row - 1][coordinates.column - 1] = text2;
+
+    header();
+    tablePrinter(table);
+}
+
 int main(void) {
     char table[SIZE][SIZE] = {0};
     COORDINATES coordinates;
@@ -111,45 +147,17 @@ int main(void) {
     header();
     tablePrinter(table);
 
-    do {
-        do {
-            coordinates.row = input("Cross", "row");
-            coordinates.column = input("Cross", "column");
-
-            if (checkChar(table, coordinates)) {
-                printf("This position is already taken!\n");
-            }
-        } while (checkChar(table, coordinates));
-
-        table[coordinates.row - 1][coordinates.column - 1] = 'X';
-
-        header();
-        tablePrinter(table);
-
+    while (1) {
+        turn(coordinates, table, "Cross", 'X');
         if (checkWin(table)) {
             printf("Cross is the winner!\n");
             return 0;
         }
 
-        do {
-            coordinates.row = input("Nought", "row");
-            coordinates.column = input("Nought", "column");
-
-            if (checkChar(table, coordinates)) {
-                printf("This position is already taken!\n");
-            }
-        } while (checkChar(table, coordinates));
-
-        table[coordinates.row - 1][coordinates.column - 1] = 'O';
-
-        header();
-        tablePrinter(table);
-
+        turn(coordinates, table, "Nought", 'O');
         if (checkWin(table)) {
-            printf("Nought is the winner!\n");
+            printf("Cross is the winner!\n");
             return 0;
         }
-    } while (checkWin(table) == 0);
-
-    return 0;
+    }
 }

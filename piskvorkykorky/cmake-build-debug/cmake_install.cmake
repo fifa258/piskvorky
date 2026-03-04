@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/caklo/Filip/piskvorkykorky
+# Install script for directory: F:/student/it2/P2/PVY/piskvorky
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,13 +34,13 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Users/caklo/AppData/Local/Programs/CLion 2025.3.3/bin/mingw/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/mingw/mingw64/bin/objdump.exe")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Users/caklo/Filip/piskvorkykorky/cmake-build-debug/install_local_manifest.txt"
+  file(WRITE "F:/student/it2/P2/PVY/piskvorky/cmake-build-debug/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -56,6 +56,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Users/caklo/Filip/piskvorkykorky/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "F:/student/it2/P2/PVY/piskvorky/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
